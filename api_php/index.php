@@ -129,19 +129,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html>
 <?php
 } else  {
-    $context = stream_context_create(
-        array(
-            "http" => array(
-                "header" => "User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36", "Content-type:application/json;charset=utf-8"
-            )
-        )
-    );
-    
-    $data = file_get_contents('http://sv1.gdplayer.to/api/?dVNLdVRZd1A0MzdXNzFmWE9pT2Vjbit3S2o4dmJacmRta1JHQ0pZU2R5dWxYa2RTZW45UUpCQmh5MGtDZHpDWWhLLytUZjQ0NUNVSE96eC9UTjJtMEhWRTRVQW5EdXR6RVFnT2lxNnJsOGtObHU5bys5bHoyVFFGbEIyak1EVTZ4eUVHaExKdHgzRFAwN2Y5R2V3SElqL2dlNzJPdjhWd2RTa0ZTM3hmM1RRPTo6ZTH1YKoWGAabXEZurstokA%3D%3D', false, $context); // put the contents of the file into a variable
-    
-    $obj = json_decode($data, false);
+$curl = curl_init();
+  curl_setopt_array($curl, array(
+    CURLOPT_URL => 'https://sv1.gdplayer.to/api/?' . $_GET['id'],
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_SSL_VERIFYHOST => 0,
+    CURLOPT_SSL_VERIFYPEER => 0,
+    CURLOPT_USERAGENT => "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36",
+    CURLOPT_ENCODING => '',
+    CURLOPT_MAXREDIRS => 10,  
+    CURLOPT_TIMEOUT => 0,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => 'GET'
+  ));
 
-    ?>
+  $response = curl_exec($curl);
+  curl_close($curl);
+  $obj = json_decode($response, false);
+?>
 
 <!doctype html>
 <html>
