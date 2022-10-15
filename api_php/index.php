@@ -2,7 +2,6 @@
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $vidurl = $_POST['vidurl'];
     $type = $_POST['type'];
-    
 ?>
 <!Doctype html>
 <html>
