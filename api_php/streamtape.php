@@ -21,58 +21,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </style>
 
     <script>
-    const _0xc2afa9 = _0x5a46;
+    document.addEventListener('DOMContentLoaded', () => {
+        // This is the bare minimum JavaScript. You can opt to pass no arguments to setup.
+        const player = new Plyr('#player');
 
-    function _0x4c53() {
-        const _0x1cfcf9 = ['#player', 'player', '9103374OsBvnU', '.js-forward', '38476mvmfKF', '1258856aqdMFt',
-            '5123247GhkBzw', '.js-play', 'querySelector', '548734tejcnZ', '27wRLYyd', '655ZbbSmG', '18599ShDfOC',
-            'click', '5840WdmETH', 'addEventListener', '10059320BjHvBu', 'fullscreen'
-        ];
-        _0x4c53 = function() {
-            return _0x1cfcf9;
-        };
-        return _0x4c53();
-    }
+        // Expose
+        window.player = player;
 
-    function _0x5a46(_0x92c304, _0x31f91c) {
-        const _0x4c5388 = _0x4c53();
-        return _0x5a46 = function(_0x5a4621, _0x12f32e) {
-            _0x5a4621 = _0x5a4621 - 0xe8;
-            let _0x554f70 = _0x4c5388[_0x5a4621];
-            return _0x554f70;
-        }, _0x5a46(_0x92c304, _0x31f91c);
-    }(function(_0x15c7a, _0x1465c4) {
-        const _0x41b792 = _0x5a46,
-            _0x4af535 = _0x15c7a();
-        while (!![]) {
-            try {
-                const _0x525041 = parseInt(_0x41b792(0xeb)) / 0x1 + -parseInt(_0x41b792(0xef)) / 0x2 + parseInt(
-                    _0x41b792(0xec)) / 0x3 + parseInt(_0x41b792(0xea)) / 0x4 * (-parseInt(_0x41b792(0xf1)) /
-                    0x5) + -parseInt(_0x41b792(0xe8)) / 0x6 + parseInt(_0x41b792(0xf2)) / 0x7 * (-parseInt(
-                    _0x41b792(0xf4)) / 0x8) + parseInt(_0x41b792(0xf0)) / 0x9 * (parseInt(_0x41b792(0xf6)) /
-                    0xa);
-                if (_0x525041 === _0x1465c4) break;
-                else _0x4af535['push'](_0x4af535['shift']());
-            } catch (_0x536c54) {
-                _0x4af535['push'](_0x4af535['shift']());
-            }
+        // Bind event listener
+        function on(selector, type, callback) {
+            document.querySelector(selector).addEventListener(type, callback, false);
         }
-    }(_0x4c53, 0xf2752), document[_0xc2afa9(0xf5)]('DOMContentLoaded', () => {
-        const _0x52ccd7 = _0xc2afa9,
-            _0x419acf = new Plyr(_0x52ccd7(0xf8));
-        window[_0x52ccd7(0xf9)] = _0x419acf;
-
-        function _0x41d817(_0x4815ea, _0x123fb9, _0x24fbab) {
-            const _0x5215fa = _0x52ccd7;
-            document[_0x5215fa(0xee)](_0x4815ea)['addEventListener'](_0x123fb9, _0x24fbab, ![]);
-        }
-        _0x41d817(_0x52ccd7(0xed), _0x52ccd7(0xf3), () => {
-            _0x419acf['play']();
-        }), _0x41d817(_0x52ccd7(0xe9), _0x52ccd7(0xf3), () => {
-            const _0x494284 = _0x52ccd7;
-            _0x419acf[_0x494284(0xf7)]['enter']();
+        // Play
+        on('.js-play', 'click', () => {
+            player.play();
         });
-    }));
+        // Forward
+        on('.js-forward', 'click', () => {
+            player.fullscreen.enter();
+        });
+    });
     </script>
 </head>
 
@@ -158,20 +126,20 @@ $curl = curl_init();
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
     setTimeout(() => {
-            document.getElementById("submit").disabled = false;
-        }, "5000")
-        
-        timeLeft = 5;
+        document.getElementById("submit").disabled = false;
+    }, "10000")
 
-        function countdown() {
-            timeLeft--;
-            document.getElementById("seconds").innerHTML = String( timeLeft );
-            if (timeLeft > 0) {
-                setTimeout(countdown, 1000);
-            }
-        };
+    timeLeft = 10;
 
-        setTimeout(countdown, 1000);
+    function countdown() {
+        timeLeft--;
+        document.getElementById("seconds").innerHTML = String(timeLeft);
+        if (timeLeft > 0) {
+            setTimeout(countdown, 1000);
+        }
+    };
+
+    setTimeout(countdown, 1000);
     </script>
 </head>
 
