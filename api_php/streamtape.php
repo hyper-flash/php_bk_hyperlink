@@ -157,53 +157,21 @@ $curl = curl_init();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-    var _0x480b58 = _0x3ec3;
+    setTimeout(() => {
+            document.getElementById("submit").disabled = false;
+        }, "5000")
+        
+        timeLeft = 5;
 
-    function _0x3a47() {
-        var _0x231a1e = ['1298930TpVakg', 'innerHTML', '95384zrsEqy', '12uWvUdw', '214LRNzxp', '11889WENbSV', 'seconds',
-            '79244sxkXFh', 'submit', 'getElementById', '696332ezOAvI', '558YTvsHj', '26777366bqTjka', '10000',
-            '95OzpLTc', '51135Rurdbq'
-        ];
-        _0x3a47 = function() {
-            return _0x231a1e;
-        };
-        return _0x3a47();
-    }(function(_0x4079db, _0x2ed120) {
-        var _0x51539d = _0x3ec3,
-            _0x467eef = _0x4079db();
-        while (!![]) {
-            try {
-                var _0x2b19a2 = -parseInt(_0x51539d(0xef)) / 0x1 * (parseInt(_0x51539d(0xee)) / 0x2) + -parseInt(
-                        _0x51539d(0xe9)) / 0x3 + parseInt(_0x51539d(0xf1)) / 0x4 * (parseInt(_0x51539d(0xe8)) /
-                        0x5) + -parseInt(_0x51539d(0xed)) / 0x6 * (parseInt(_0x51539d(0xf4)) / 0x7) + parseInt(
-                        _0x51539d(0xec)) / 0x8 * (-parseInt(_0x51539d(0xe5)) / 0x9) + parseInt(_0x51539d(0xea)) /
-                    0xa + parseInt(_0x51539d(0xe6)) / 0xb;
-                if (_0x2b19a2 === _0x2ed120) break;
-                else _0x467eef['push'](_0x467eef['shift']());
-            } catch (_0x3cfd18) {
-                _0x467eef['push'](_0x467eef['shift']());
+        function countdown() {
+            timeLeft--;
+            document.getElementById("seconds").innerHTML = String( timeLeft );
+            if (timeLeft > 0) {
+                setTimeout(countdown, 1000);
             }
-        }
-    }(_0x3a47, 0xae22e), setTimeout(() => {
-        var _0x13605c = _0x3ec3;
-        document[_0x13605c(0xf3)](_0x13605c(0xf2))['disabled'] = ![];
-    }, _0x480b58(0xe7)), timeLeft = 0xa);
+        };
 
-    function countdown() {
-        var _0x49e8f7 = _0x480b58;
-        timeLeft--, document['getElementById'](_0x49e8f7(0xf0))[_0x49e8f7(0xeb)] = String(timeLeft), timeLeft > 0x0 &&
-            setTimeout(countdown, 0x3e8);
-    }
-
-    function _0x3ec3(_0x1c5fd8, _0x84bf57) {
-        var _0x3a475c = _0x3a47();
-        return _0x3ec3 = function(_0x3ec37b, _0x35b931) {
-            _0x3ec37b = _0x3ec37b - 0xe5;
-            var _0x395fb9 = _0x3a475c[_0x3ec37b];
-            return _0x395fb9;
-        }, _0x3ec3(_0x1c5fd8, _0x84bf57);
-    };
-    setTimeout(countdown, 0x3e8);
+        setTimeout(countdown, 1000);
     </script>
 </head>
 
