@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Test</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.flowplayer.com/releases/native/v2.3.8/style/flowplayer.css"
+    />
+    
+    <style>
+      player {max-width: 960px}
+      .fp-logo {
+    position: static;
+    max-width: 15%;
+}
+    </style>
+
+    <script src="https://cdn.flowplayer.com/releases/native/v2.3.8/flowplayer.min.js"></script>
+    <script src="https://cdn.flowplayer.com/releases/native/v2.3.8/plugins/hls.min.js"></script>
+    <script src="https://cdn.flowplayer.com/releases/native/v2.3.8/plugins/asel.min.js"></script>
+    <script src="https://cdn.flowplayer.com/releases/native/v2.3.8/plugins/qsel.min.js"></script>
+  </head>
+  <body>
+    <player poster="https://media-exp1.licdn.com/dms/image/C560BAQHMnA03XDdf3w/company-logo_200_200/0/1519855918965?e=2147483647&v=beta&t=J3kUMZwIphc90TFKH5oOO9Sa9K59fimgJf-s_okU3zs"></player>
+    <script type="application/javascript">
+      var videos = 
+          { OK: "https://sv1.gdplayer.to/videoplayback/481b66f6bfa2afbb7c3b70cd9408808e/3a68f20991ffcccf5d92a86d5982ea92/original/?token=MURuVEtSODNYVnk1UWt5b001bWZrUT09OjrUvczIfN3mO1dt7ITm5ctC"
+          }
+      
+      flowplayer("player", 
+          { src      : videos.OK
+          , autoplay : false
+          , title: "HIT"
+          , dvr: true
+          , seconds_to_dvr: 120
+          , logo: "https://i.ibb.co/88rrGjk/istockphoto-1170255790-612x612-removebg-preview.png"
+          , logo_href: "https://ibb.co/9YbbBqP"
+          , poster: "https://sportshub.cbsistatic.com/i/2022/05/17/f1a5cc5a-9c00-4c80-a6fc-a8646564ccca/she-hulk-logo-2022.jpg"
+           , skip_controsls: true
+
+          , hls      : {startLevel: -1, debug: true}
+          })
+    </script>
+  </body>
+</html>
