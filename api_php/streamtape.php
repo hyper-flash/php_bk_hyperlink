@@ -7,12 +7,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html>
 
 <head>
-    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.7/plyr.css">
-    <script src="https://cdn.plyr.io/3.6.7/plyr.js"></script>
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css">
+    <script src="https://cdn.plyr.io/3.7.2/plyr.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.js"
-        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous">
-    </script>
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <style>
     :root {
         --plyr-color-main: #3accae;
@@ -21,13 +20,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </style>
 
     <script>
-    document.addEventListener('DOMContentLoaded', () => {
+    $(document).ready(function() {
         // This is the bare minimum JavaScript. You can opt to pass no arguments to setup.
         const player = new Plyr('#player');
 
         // Expose
         window.player = player;
-
+        console.log(player)
         // Bind event listener
         function on(selector, type, callback) {
             document.querySelector(selector).addEventListener(type, callback, false);
@@ -35,10 +34,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Play
         on('.js-play', 'click', () => {
             player.play();
-        });
-        // Forward
-        on('.js-forward', 'click', () => {
-            player.fullscreen.enter();
         });
     });
     </script>
@@ -61,15 +56,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                 <path
                     d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z" />
-            </svg>
-        </button>
-        <button
-            class="js-forward mt-2 mb-2 inline-flex items-center rounded border border-indigo-600 bg-indigo-600 px-8 py-3 text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500">
-            <span class="text-sm font-medium"> Full Screen &nbsp; &nbsp;</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                class="bi bi-arrows-fullscreen" viewBox="0 0 16 16">
-                <path fill-rule="evenodd"
-                    d="M5.828 10.172a.5.5 0 0 0-.707 0l-4.096 4.096V11.5a.5.5 0 0 0-1 0v3.975a.5.5 0 0 0 .5.5H4.5a.5.5 0 0 0 0-1H1.732l4.096-4.096a.5.5 0 0 0 0-.707zm4.344 0a.5.5 0 0 1 .707 0l4.096 4.096V11.5a.5.5 0 1 1 1 0v3.975a.5.5 0 0 1-.5.5H11.5a.5.5 0 0 1 0-1h2.768l-4.096-4.096a.5.5 0 0 1 0-.707zm0-4.344a.5.5 0 0 0 .707 0l4.096-4.096V4.5a.5.5 0 1 0 1 0V.525a.5.5 0 0 0-.5-.5H11.5a.5.5 0 0 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 0 .707zm-4.344 0a.5.5 0 0 1-.707 0L1.025 1.732V4.5a.5.5 0 0 1-1 0V.525a.5.5 0 0 1 .5-.5H4.5a.5.5 0 0 1 0 1H1.732l4.096 4.096a.5.5 0 0 1 0 .707z" />
             </svg>
         </button>
     </div>
@@ -96,7 +82,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </body>
 <html>
 <?php
-} else  {
+} else if(isset($_GET['id'])){
+    
 $curl = curl_init();
   curl_setopt_array($curl, array(
     CURLOPT_URL => 'https://sv1.gdplayer.to/api/?' . $_GET['id'],
@@ -188,6 +175,61 @@ $curl = curl_init();
             </div>
         </div>
     </form>
+
+</body>
+
+</html>
+
+<?php
+}else{
+?>
+
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+</head>
+
+<body class="bg-gray-900 text-white">
+    <nav class="bg-white-800">
+        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+            <div class="relative flex h-16 items-center justify-between">
+                <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+                    <div class="flex flex-shrink-0 items-center">
+                        <img class="block h-8 w-auto lg:hidden"
+                            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+                        <img class="hidden h-8 w-auto lg:block"
+                            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        </div>
+    </nav>
+    <div class="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center">
+        <div class="mx-auto max-w-3xl text-center">
+            <h1
+                class="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl">
+                <i class="bi bi-emoji-expressionless"></i> Not Found...
+            </h1>
+
+            <p class="mx-auto mt-4 max-w-xl sm:text-xl sm:leading-relaxed">
+                File Not Found...
+            </p>
+
+            <div class="mt-8 flex flex-wrap justify-center gap-4">
+                <a
+                    class="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto" href="streamtape.php">
+                    Not Found
+                </a>
+            </div>
+        </div>
+    </div>
 
 </body>
 
