@@ -1,4 +1,5 @@
 <?php
+header('Content-type: application/json');
 if(isset($_GET['id'])){
 $id = $_GET['id'];
 
@@ -10,7 +11,6 @@ $l="https://pkembed.com/embed-". $id .".html";
 preg_match("/(\w+)\.html/",$l,$c);
 
 $l="https://pkembed.com/".$c[0];
-
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $l);
@@ -36,14 +36,10 @@ $data = [ 'code' => '1', 'url' => $m[1] ];
 $data = [ 'code' => '0', 'url' => 'Not Found...' ];
 }
 
-header('Content-type: application/json');
 echo json_encode( $data );
 
 }else{
     $data = [ 'code' => '0', 'url' => 'Not Found...' ];
-
-
-    header('Content-type: application/json');
     echo json_encode( $data );
 }
 ?>
