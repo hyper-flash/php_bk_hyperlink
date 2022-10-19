@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./main.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+    crossorigin="anonymous"></script>
+  <title>Change src value of iframe dynamically</title>
+</head>
+
+<body>
+  <div class="load" id="loadbody">
+    <div id="ld2">
+      <div>
+      </div>
+      <div>
+      </div>
+      <div>
+      </div>
+      <div>
+      </div>
+      <div>
+      </div>
+      <div>
+      </div>
+      <div>
+      </div>
+    </div>
+  </div>
+  <div id="hide">
+    <div class="container">
+      <div class="responsive-load load-iframe" id="ld2">
+        <div>
+        </div>
+        <div>
+        </div>
+        <div>
+        </div>
+        <div>
+        </div>
+        <div>
+        </div>
+        <div>
+        </div>
+        <div>
+        </div>
+      </div>
+      <iframe class="responsive-iframe" src="https://gdplayer.to/embed/?OHpqWElsbUFWM2lEdnlwRjlMOWwzVlNPWW5IM2xpSTF1bXZ0c2x6NGJVNTRqTW5CM3FZK2FIUE9tSW9pZHdKbDo6k%2F3lYIG6eR%2BgpvA7YIldvg%3D%3D" id="MyFrame"></iframe>
+    </div>
+    <div>
+      <h2>Change</h2>
+      <div class="box" style="border-color: white;">
+        <hr size="1px">
+        <p class="view" style="margin: 5px 0px;border-color: white;"><i class="bi bi-eye"></i>&nbsp;&nbsp;556565656</p>
+        <hr size="1px" style="margin-top: 10px;">
+      </div>
+      <div class="box">
+        <input type="radio" id="radio1" name="radiobtn" onchange="newSrc()"
+          value="https://gdplayer.to/embed/?OHpqWElsbUFWM2lEdnlwRjlMOWwzVlNPWW5IM2xpSTF1bXZ0c2x6NGJVNTRqTW5CM3FZK2FIUE9tSW9pZHdKbDo6k%2F3lYIG6eR%2BgpvA7YIldvg%3D%3D" checked />
+        <label for="radio1"><i class="bi bi-file-earmark-play"></i> Crazy Option</label>
+
+        <input type="radio" id="radio2" onchange="newSrc()" name="radiobtn"
+          value="" />
+        <label for="radio2"><i class="bi bi-file-earmark-play"></i> Freaky Option</label>
+
+        <input type="radio" id="radio3" onchange="newSrc()" name="radiobtn" value="" />
+        <label for="radio3"><i class="bi bi-file-earmark-play"></i> Cat Option</label>
+
+        <input type="radio" id="radio5" onchange="newSrc()" name="radiobtn" value="" />
+        <label for="radio5"><i class="bi bi-file-earmark-play"></i> Cat Option</label>
+
+        <input type="radio" id="radio6" onchange="newSrc()" name="radiobtn" value="" />
+        <label for="radio6"><i class="bi bi-file-earmark-play"></i> Cat Option</label>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    // load iframe js
+    $(".responsive-iframe").css("display", "none");
+    $('.responsive-iframe').on("load", function () {
+          $(".load-iframe").css("display", "none");
+          $(".responsive-iframe").css("display", "block");
+    });
+
+    // change button on iframe   
+
+    function newSrc() {
+     
+      var srcframe = document.querySelector('input[name="radiobtn"]:checked').value;
+      var e = document.getElementById("MySelectMenu");
+      document.getElementById("MyFrame").src = srcframe;
+    }
+
+    var vidbody = document.getElementById('hide');
+    // get the current value of the clock's display property
+    var displaySetting = vidbody.style.display;
+
+    vidbody.style.display = 'none';
+
+    setTimeout(() => {
+      vidbody.style.display = 'block';
+      document.getElementById('loadbody').style.display = 'none';
+    }, 1000);
+
+    // Requires jQuery
+
+    // rocket animation
+  </script>
+</body>
+
+</html>
